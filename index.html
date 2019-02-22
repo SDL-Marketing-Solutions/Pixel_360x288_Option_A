@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="ad.size" content="width=360,height=288">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineMax.min.js"></script>
+    
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i|PT+Serif:400,400i,700,700i" rel="stylesheet"> 
+	
+	
+	<script type="text/javascript">
+		var clickTag = "https://www.doubleclickbygoogle.com/";
+	</script>
+	
+
+    <style type="text/css">
+
+		html,body{width:360px;height:288px;margin:0;}
+		p{margin:0; font-family: 'PT Sans', sans-serif ;line-height:1em;font-size:18px; color:#63666a;opacity:0;transform-style: preserve-3d;}
+
+		* {
+		  -webkit-font-smoothing: antialiased;
+		  -moz-osx-font-smoothing: grayscale;
+		}
+
+		#main{left:0;top:0;width:360px;height:288px;background-color:#eeefef;overflow:hidden;}
+		div, p, img {position:absolute;}
+		
+		#background, #txt-05, #logo {left:0;top:0;width:360px;height:288px;}
+		#txt-02,#txt-03,#txt-04,#txt-05 {opacity: 0;}
+		#deal, #phone-final {left:-190px;top:0;width:360px;height:288px;opacity:1;}
+
+
+		#txt-01 {left: 34px;top: 43px;font-size: 39px;color:black;width: 360px;height: 288px;font-family: 'PT Sans', sans-serif;font-weight:bold;line-height: .8em;letter-spacing: -2px;}
+		#txt-02 {left:175px;top:69px;width:200px;height:auto;color:white;font-size: 12px;}
+		#txt-03 {left:174px;top:82px;width:200px;height:auto;font-family: 'PT Serif', serif;font-size:22px;color:black;font-weight: bold;}
+		#txt-04 {left:175px;top:108px;width:200px;height:auto;font-size:10px;color:black;font-family: 'PT Sans', sans-serif;font-weight: bold;}
+
+		#txt-05 {left:174px;top:126px;width:200px;height:auto;font-size:37px;color:white;font-family: 'PT Sans', sans-serif;font-weight: bold;}
+		#txt-05 .small {font-size: 13px;margin-left: -7px;font-family: 'PT Sans', sans-serif;font-weight: normal;}
+
+		#txt-06 {left:174px;top:164px;width:200px;height:auto;font-size:12px;color:black;font-family: 'PT Sans', sans-serif;font-weight: bold;letter-spacing: -1px;}
+		#txt-06 .smaller {font-size: 12px;font-weight: bold;}
+
+		#txt-07 {left:175px;top:176px;width:200px;height:auto;font-size:11px;color:black; font-family: 'PT Sans', sans-serif;font-weight: bold;}
+		#txt-08 {left:175px;top:199px;width:200px;height:auto;font-size:7px;color:black;font-family: 'PT Sans', sans-serif;font-weight: bold;}
+
+
+		#background, #txt-01,#logo, #deal, #phone-spin {opacity: 1;}
+
+		#lines {top: -451px; left: -532px; width:398px; height:432px;opacity:0;}
+		#line1,#line2,#line3,#line4,#line5,#line6,#line7,#line8,#line9 {top: 0;left:0;width:398px;height:432px; opacity: 1; } 
+		/* #line1,#line2,#line3,#line4,#line5,#line6,#line7,#line8 {top:-451px;left:-532px;width:398px;height:432px; opacity: 1; }*/
+
+		#bgExit{left: 0px; top: 0px; width: 100%; height: 100%; cursor: pointer;  background-color: rgba(255,255,255,0);border:1px solid #000000; box-sizing:border-box; -ms-box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box sizing:border-box;}
+
+	</style>
+
+</head>
+
+<body>
+
+    <div id="main">
+          
+   		<img src="background.jpg" id="background"/>
+ 		
+   		<div id="lines">
+   			<img id="line1" src="line_1.png" />
+			<img id="line2" src="line_2.png" />
+			<img id="line3" src="line_3.png" />
+			<img id="line4" src="line_4.png" />
+			<img id="line5" src="line_5.png" />
+			<img id="line6" src="line_6.png" />
+			<img id="line7" src="line_7.png" />
+			<img id="line8" src="line_8.png" />
+			<img id="line9" src="line_9.png" />
+   		</div>
+        <p id="txt-01">Get more<br>Smartphone<br>for your money</p>
+
+		<img src="phone_final.png" id="phone-final"/>
+		<img src="deal_bar.png" id="deal"/>
+
+        <p id="txt-02">With Vodaphone get the new</p>
+		<p id="txt-03">Google Pixel 3</p>
+		<p id="txt-04">with 5GB data, unlimited texts.</p>
+
+		<p id="txt-05">£42 <span class="small">a month</span></p>
+		<p id="txt-06">PLUS UNLIMITED <span class="smaller">minutes</span></p>
+		<p id="txt-07">any network</p>
+
+		<p id="txt-08">Terms apply. Ask instore for details</p>
+
+		<img src="logo.png" id="logo"/>
+        
+     	<div id="bgExit"></div>
+
+    </div>
+
+	<script type="text/javascript">
+	function init(){
+	    //
+	    var bgExit = document.getElementById("bgExit");
+	     //
+	    function pageLoadedHandler(){
+	        startAnimation();
+	        enableButtons();
+	  	}
+	    //
+	    function bgExitHandler(e) {
+			// DCM clickTag (not DC)
+			lastFrame();
+			return window.open(window.clickTag);
+	    }
+	    // 
+	    function lastFrame(){
+	        tl1.progress(1, false);
+	        TweenMax.killAll(); 
+	    }
+	    //
+	    function enableButtons(){
+	        function is_touch_device() {
+	            return (('ontouchstart' in window) || (navigator.MaxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
+	        }
+	        if (is_touch_device()) {
+	            bgExit.addEventListener('touchend', bgExitHandler, false);
+	        } else {
+	            bgExit.addEventListener('click', bgExitHandler, false);
+	        }
+	    }
+	    //
+	    var tl1;
+	    //
+	    function startAnimation(){
+	        //
+	        tl1 = new TimelineMax({repeat:0, repeatDelay: 0});
+
+	        tl1.to("#lines",1,{x: 420, y: 420, opacity:1, ease: Power2.easeOut},'+=1');
+	    	tl1.to("#txt-01",.5,{x: 150, opacity:0,ease: Power2.easeIn}, '+=1');
+	        tl1.to(["#deal","#phone-final"],.3,{x: 190, ease: Power1.easeOut},'+=.3');      
+			tl1.to(["#txt-02","#txt-03","#txt-04"],.5,{opacity:1, x: 15},'+=.75');
+			tl1.to(["#txt-05","#txt-06","#txt-07","#txt-08"],.5,{opacity:1, x: 15},'+=2');
+			
+
+			//tl1.to("#anim-holder", 0.9, {x:0, y:-8, rotation: 590, scale: 0.7, ease: Power0.easeNone},'-=0.9');  
+		}
+		
+		window.addEventListener('DOMContentLoaded', pageLoadedHandler, false);
+	    //
+	}; 
+	//
+	init();
+	//
+	</script>
+</body>
+  
+</html>
